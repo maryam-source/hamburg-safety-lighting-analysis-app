@@ -1,0 +1,215 @@
+/* Global Styles */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  overflow: hidden;
+  background: #f0f2f5;
+}
+
+#map {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+/* Sidebar Styles */
+#sidebar {
+  width: 350px;
+  max-width: 40%;
+  min-width: 250px;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  color: #222;
+  font-weight: 600;
+}
+
+#stats {
+  margin-bottom: 15px;
+  line-height: 1.5em;
+  color: #444;
+  font-size: 0.95em;
+}
+
+#loading {
+  margin-bottom: 10px;
+  font-style: italic;
+  font-weight: bold;
+  color: #0078d7;
+  display: none;
+}
+
+/* Histogram Canvas */
+canvas#histogram {
+  width: 100% !important;
+  height: 200px !important;
+  margin-top: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Export Button */
+#exportBtn {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background-color: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#exportBtn:hover:not(:disabled) {
+  background-color: #005fa3;
+  transform: scale(1.02);
+}
+
+#exportBtn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Leaflet Draw Customization */
+.leaflet-container .leaflet-draw-toolbar a {
+  background-color: #0078d7 !important;
+  color: #fff !important;
+}
+
+.leaflet-container .leaflet-draw-toolbar a:hover {
+  background-color: #005fa3 !important;
+}
+
+/* Legend & Opacity Slider Only */
+.legend {
+  line-height: 1.4em;
+  background: rgba(255,255,255,0.95);
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  font-size: 0.9em;
+  min-width: 120px;
+  z-index: 900;
+}
+
+.legend .opacity-slider {
+  width: 100%;
+  margin-top: 8px;
+  appearance: none;
+  height: 4px;
+  background: #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.legend .opacity-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #0078d7;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.legend .opacity-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #0078d7;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Leaflet Layer Control
+   Shifted to avoid sidebar */
+.leaflet-control-layers {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  font-size: 0.9em;
+  z-index: 900;
+  margin-left: 40px; /* shift right of sidebar */
+}
+
+.leaflet-control-layers label {
+  margin: 2px 0;
+  cursor: pointer;
+}
+
+/* Scrollbar for sidebar */
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  #sidebar {
+    width: 300px;
+  }
+
+  .leaflet-control-layers {
+    margin-left: 310px;
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    width: 45%;
+  }
+
+  .leaflet-control-layers {
+    margin-left: 46%;
+  }
+}
+
+@media (max-width: 480px) {
+  #sidebar {
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    height: 45%;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+  }
+
+  #map {
+    height: 55%;
+  }
+
+  .leaflet-control-layers {
+    margin-left: 0;
+    top: 5px;
+    left: 5px;
+  }
+}

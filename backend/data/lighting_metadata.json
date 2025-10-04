@@ -1,0 +1,15 @@
+{
+  "created_at": "2025-10-02T20:23:03.685743Z",
+  "source_vector": "street-lamp-OSM.gpkg",
+  "lamp_count": 18296,
+  "target_crs": "EPSG:25832",
+  "pixel_size_m": 5,
+  "gaussian_sigma_pixels": 10,
+  "gaussian_sigma_meters": 50,
+  "chunk_size_pixels": 2000,
+  "grid_cell_size_m": 50,
+  "normalize_total": true,
+  "nodata_value": -9999.0,
+  "histogram_bins": 30,
+  "seed": 42
+}
